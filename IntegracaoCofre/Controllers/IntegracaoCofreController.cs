@@ -6,6 +6,7 @@ namespace IntegracaoCofre.Controllers
 {
     public class IntegracaoCofreController : ApiController
     {
+        [HttpPost]
         public ResponseStatus Status([FromBody] RequestStatus requestStatus)
         {
             ResponseStatus response = new ResponseStatus()
@@ -16,6 +17,7 @@ namespace IntegracaoCofre.Controllers
 
             return response;
         }
+        [HttpPost]
         public ResponseRegistrarTransacao RegistrarTransacao([FromBody] RequestRegistrarTransacao requestRegistrarTransacao)
         {
             ResponseRegistrarTransacao response = new ResponseRegistrarTransacao()
@@ -27,6 +29,7 @@ namespace IntegracaoCofre.Controllers
 
             return response;
         }
+        [HttpPost]
         public ResponseRegistrarColeta RegistrarColeta([FromBody] RequestRegistrarColeta requestRegistrarColeta)
         {
             ResponseRegistrarColeta response = new ResponseRegistrarColeta()
