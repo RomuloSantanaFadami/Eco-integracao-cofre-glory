@@ -179,6 +179,7 @@
     <Compile Include="Models\RequestStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IntegracaoCofreRepository.cs" />
+    <Compile Include="Repository\Interfaces\IIntegracaoCofreRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

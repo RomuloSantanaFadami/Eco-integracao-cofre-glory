@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace IntegracaoCofre.Repository
 {
-    public class IntegracaoCofreRepository
+    public class IntegracaoCofreRepository : IIntegracaoCofreRepository
     {
         private readonly DatabaseUtil db = new DatabaseUtil();
 
