@@ -1,4 +1,6 @@
-﻿using IntegracaoCofre.Models;
+﻿using Fadami.Helper.Database;
+using IntegracaoCofre.Models;
+using IntegracaoCofre.Repository;
 using System.Net;
 using System.Web.Http;
 
@@ -9,34 +11,23 @@ namespace IntegracaoCofre.Controllers
         [HttpPost]
         public ResponseStatus Status([FromBody] RequestStatus requestStatus)
         {
-            ResponseStatus response = new ResponseStatus()
-            {
-                ResultCode = 0,
-                ResultMessage = "Sucesso"
-            };
+            ResponseStatus response = new IntegracaoCofreRepository().ObterStatus(requestStatus);
 
             return response;
         }
+
         [HttpPost]
         public ResponseRegistrarTransacao RegistrarTransacao([FromBody] RequestRegistrarTransacao requestRegistrarTransacao)
         {
-            ResponseRegistrarTransacao response = new ResponseRegistrarTransacao()
-            {
-                ResultCode = 0,
-                ResultMessage = "Sucesso",
-                TransactId = 0
-            };
+            ResponseRegistrarTransacao response = new IntegracaoCofreRepository().RegistrarTransacao(requestRegistrarTransacao);
 
             return response;
         }
+
         [HttpPost]
         public ResponseRegistrarColeta RegistrarColeta([FromBody] RequestRegistrarColeta requestRegistrarColeta)
         {
-            ResponseRegistrarColeta response = new ResponseRegistrarColeta()
-            {
-                ResultCode = 0,
-                ResultMessage = "Sucesso"
-            };
+            ResponseRegistrarColeta response = new IntegracaoCofreRepository().RegistrarColeta(requestRegistrarColeta);
 
             return response;
         }
