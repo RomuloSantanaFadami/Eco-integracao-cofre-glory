@@ -10,7 +10,7 @@ namespace IntegracaoCofre.Models
         public int TransactionType { get; set; }
         public string SerialNumber { get; set; }
         public string ClientName { get; set; }
-        public string NumeroLote { get; set; }
+        public long NumeroLote { get; set; }
         public DateTime TransactionDate { get; set; }
         public string UserId { get; set; }
         public string UserName { get; set; }
