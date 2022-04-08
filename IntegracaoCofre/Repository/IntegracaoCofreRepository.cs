@@ -36,11 +36,14 @@ namespace IntegracaoCofre.Repository
         {
             try
             {
-                var query = string.Format("SPI_PLJ_CA_GLORY_REGISTRAR_TRANSACAO @JSON = {0}", JsonConvert.SerializeObject(requestRegistrarTransacao));
 
-                return JsonConvert.DeserializeObject<List<ResponseRegistrarTransacao>>(JsonConvert.SerializeObject(db.GetDataTable(query))).FirstOrDefault();
+                var query = string.Format("SPI_PLJ_CA_GLORY_REGISTRAR_TRANSACAO @JSON = {0}", DatabaseUtil.FormatarParametro(JsonConvert.SerializeObject(requestRegistrarTransacao)));
+
+                var tab = db.GetDataTable(query);
+
+                return JsonConvert.DeserializeObject<List<ResponseRegistrarTransacao>>(JsonConvert.SerializeObject(tab)).FirstOrDefault();
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
                 return new ResponseRegistrarTransacao()
                 {
@@ -54,11 +57,11 @@ namespace IntegracaoCofre.Repository
         {
             try
             {
-                var query = string.Format("SPI_PLJ_CA_GLORY_REGISTRAR_COLETA @JSON = {0}", JsonConvert.SerializeObject(requestRegistrarColeta));
+                var query = string.Format("SPI_PLJ_CA_GLORY_REGISTRAR_COLETA @JSON = {0}", DatabaseUtil.FormatarParametro(JsonConvert.SerializeObject(requestRegistrarColeta)));
 
                 return JsonConvert.DeserializeObject<List<ResponseRegistrarColeta>>(JsonConvert.SerializeObject(db.GetDataTable(query))).FirstOrDefault();
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
                 return new ResponseRegistrarColeta()
                 {
