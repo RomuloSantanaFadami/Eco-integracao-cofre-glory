@@ -11,25 +11,52 @@ namespace IntegracaoCofre.Controllers
         [HttpPost]
         public ResponseStatus Status([FromBody] RequestStatus requestStatus)
         {
-            ResponseStatus response = new IntegracaoCofreRepository().ObterStatus(requestStatus);
+            try
+            {
+                Fadami.Helper.Logs.Log.Gravar(string.Format("Obtendo Requisição de Status - Request {0}", requestStatus), "IntegraçãoCofre", Fadami.Helper.Logs.TipoLog.Info);
+                ResponseStatus response = new IntegracaoCofreRepository().ObterStatus(requestStatus);
 
-            return response;
+                return response;
+            }
+            catch (System.Exception ex)
+            {
+                Fadami.Helper.Logs.Log.Gravar("Erro Requisição de Status", ex, "IntegraçãoCofre");
+                return null;
+            }
         }
 
         [HttpPost]
         public ResponseRegistrarTransacao RegistrarTransacao([FromBody] RequestRegistrarTransacao requestRegistrarTransacao)
         {
-            ResponseRegistrarTransacao response = new IntegracaoCofreRepository().RegistrarTransacao(requestRegistrarTransacao);
+            try
+            {
+                Fadami.Helper.Logs.Log.Gravar(string.Format("Obtendo Requisição de Transação - Request {0}", requestRegistrarTransacao), "IntegraçãoCofre", Fadami.Helper.Logs.TipoLog.Info);
+                ResponseRegistrarTransacao response = new IntegracaoCofreRepository().RegistrarTransacao(requestRegistrarTransacao);
 
-            return response;
+                return response;
+            }
+            catch (System.Exception ex)
+            {
+                Fadami.Helper.Logs.Log.Gravar("Erro Requisição de Transação", ex, "IntegraçãoCofre");
+                return null;
+            }
         }
 
         [HttpPost]
         public ResponseRegistrarColeta RegistrarColeta([FromBody] RequestRegistrarColeta requestRegistrarColeta)
         {
-            ResponseRegistrarColeta response = new IntegracaoCofreRepository().RegistrarColeta(requestRegistrarColeta);
+            try
+            {
+                Fadami.Helper.Logs.Log.Gravar(string.Format("Obtendo Requisição de Coleta - Request {0}", requestRegistrarColeta), "IntegraçãoCofre", Fadami.Helper.Logs.TipoLog.Info);
+                ResponseRegistrarColeta response = new IntegracaoCofreRepository().RegistrarColeta(requestRegistrarColeta);
 
-            return response;
+                return response;
+            }
+            catch (System.Exception ex)
+            {
+                Fadami.Helper.Logs.Log.Gravar("Erro Requisição de Coleta", ex, "IntegraçãoCofre");
+                return null;
+            }
         }
     }
 }

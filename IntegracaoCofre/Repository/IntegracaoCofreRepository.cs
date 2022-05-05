@@ -23,12 +23,12 @@ namespace IntegracaoCofre.Repository
 
                 return JsonConvert.DeserializeObject<List<ResponseStatus>>(JsonConvert.SerializeObject(db.GetDataTable(query))).FirstOrDefault();
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
                 return new ResponseStatus()
                 {
                     ResultCode = 400,
-                    ResultMessage = "Não foi posspivel processar esta requisição."
+                    ResultMessage = ex.Message
                 };
             }
         }
@@ -36,7 +36,6 @@ namespace IntegracaoCofre.Repository
         {
             try
             {
-
                 var query = string.Format("SPI_PLJ_CA_GLORY_REGISTRAR_TRANSACAO @JSON = {0}", DatabaseUtil.FormatarParametro(JsonConvert.SerializeObject(requestRegistrarTransacao)));
 
                 var tab = db.GetDataTable(query);
@@ -48,7 +47,7 @@ namespace IntegracaoCofre.Repository
                 return new ResponseRegistrarTransacao()
                 {
                     ResultCode = 400,
-                    ResultMessage = "Não foi posspivel processar esta requisição.",
+                    ResultMessage = ex.Message,
                     TransactId = 0
                 };
             }
@@ -66,7 +65,7 @@ namespace IntegracaoCofre.Repository
                 return new ResponseRegistrarColeta()
                 {
                     ResultCode = 400,
-                    ResultMessage = "Não foi posspivel processar esta requisição.",
+                    ResultMessage = ex.Message,
                     TransactId = 0
                 };
             }
