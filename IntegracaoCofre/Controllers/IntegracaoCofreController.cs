@@ -1,6 +1,7 @@
 ﻿using Fadami.Helper.Database;
 using IntegracaoCofre.Models;
 using IntegracaoCofre.Repository;
+using Newtonsoft.Json;
 using System.Net;
 using System.Web.Http;
 
@@ -13,7 +14,7 @@ namespace IntegracaoCofre.Controllers
         {
             try
             {
-                Fadami.Helper.Logs.Log.Gravar(string.Format("Obtendo Requisição de Status - Request {0}", requestStatus), "IntegraçãoCofre", Fadami.Helper.Logs.TipoLog.Info);
+                Fadami.Helper.Logs.Log.Gravar(string.Format("Obtendo Requisição de Status - Request {0}", JsonConvert.SerializeObject(requestStatus)), "IntegraçãoCofre", Fadami.Helper.Logs.TipoLog.Info);
                 ResponseStatus response = new IntegracaoCofreRepository().ObterStatus(requestStatus);
 
                 return response;
@@ -30,7 +31,7 @@ namespace IntegracaoCofre.Controllers
         {
             try
             {
-                Fadami.Helper.Logs.Log.Gravar(string.Format("Obtendo Requisição de Transação - Request {0}", requestRegistrarTransacao), "IntegraçãoCofre", Fadami.Helper.Logs.TipoLog.Info);
+                Fadami.Helper.Logs.Log.Gravar(string.Format("Obtendo Requisição de Transação - Request {0}", JsonConvert.SerializeObject(requestRegistrarTransacao)), "IntegraçãoCofre", Fadami.Helper.Logs.TipoLog.Info);
                 ResponseRegistrarTransacao response = new IntegracaoCofreRepository().RegistrarTransacao(requestRegistrarTransacao);
 
                 return response;
@@ -47,7 +48,7 @@ namespace IntegracaoCofre.Controllers
         {
             try
             {
-                Fadami.Helper.Logs.Log.Gravar(string.Format("Obtendo Requisição de Coleta - Request {0}", requestRegistrarColeta), "IntegraçãoCofre", Fadami.Helper.Logs.TipoLog.Info);
+                Fadami.Helper.Logs.Log.Gravar(string.Format("Obtendo Requisição de Coleta - Request {0}", JsonConvert.SerializeObject(requestRegistrarColeta)), "IntegraçãoCofre", Fadami.Helper.Logs.TipoLog.Info);
                 ResponseRegistrarColeta response = new IntegracaoCofreRepository().RegistrarColeta(requestRegistrarColeta);
 
                 return response;
