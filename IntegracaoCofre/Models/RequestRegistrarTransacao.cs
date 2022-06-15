@@ -7,6 +7,7 @@ namespace IntegracaoCofre.Models
 {
     public class RequestRegistrarTransacao
     {
+        public string view { get; set; }
         public int TransactionType { get; set; }
         public string SerialNumber { get; set; }
         public string ClientName { get; set; }
@@ -21,6 +22,7 @@ namespace IntegracaoCofre.Models
         public string Currency { get; set; }
         public decimal Amount { get; set; }
         public List<Denomination> ListDenomination { get; set; }
+        public List<DenominationCoin> ListDenominationCoin { get; set; }
         public int RecognizedBills { get; set; }
         public DateTime BusDate { get; set; }
         public int ChangeTransactionId { get; set; }

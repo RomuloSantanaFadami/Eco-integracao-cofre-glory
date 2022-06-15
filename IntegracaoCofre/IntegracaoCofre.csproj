@@ -176,6 +176,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entidades\DenominationCoin.cs" />
     <Compile Include="Models\Entidades\Denomination.cs" />
     <Compile Include="Models\Entidades\GenId.cs" />
     <Compile Include="Models\RequestRegistrarColeta.cs" />
