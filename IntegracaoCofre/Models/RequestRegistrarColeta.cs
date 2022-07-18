@@ -7,6 +7,7 @@ namespace IntegracaoCofre.Models
 {
     public class RequestRegistrarColeta
     {
+        public string view { get; set; }
         public int CollectionType { get; set; }
         public string SerialNumber { get; set; }
         public string ClientName { get; set; }
